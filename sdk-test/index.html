@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlayerZero Web SDK Test</title>
+    <script
+      type="text/javascript"
+      src="https://go.playerzero.app/record/6ac500bb33e3779144db27bf"
+      async
+      crossorigin
+    ></script>
+    <script>
+      window.addEventListener(
+        "playerzero_ready",
+        function () {
+          window.playerzero.identify("sanjay-test", {
+            name: "Sanjay Test",
+            group: "Lab5",
+          });
+        },
+        { once: true }
+      );
+    </script>
+  </head>
+  <body style="font-family: sans-serif; max-width: 600px; margin: 40px auto;">
+    <h1>PlayerZero Web SDK Test</h1>
+    <p>Click the buttons below, then look for this session in PlayerZero.</p>
+    <p>
+      <button id="ok" onclick="document.getElementById('msg').textContent = 'Clicked at ' + new Date().toLocaleTimeString()">
+        Normal click
+      </button>
+      <button id="boom" onclick="breakOnPurpose()">Trigger error</button>
+    </p>
+    <p id="msg"></p>
+    <script>
+      function breakOnPurpose() {
+        var order = null;
+        document.getElementById("msg").textContent = "Total: " + order.total;
+      }
+    </script>
+  </body>
+</html>
